@@ -7,6 +7,8 @@ defmodule JokesWeb.Router do
 
   scope "/api", JokesWeb do
     pipe_through :api
+
+    get "/jokes/v1", JokesController, :index
   end
 
   # Enable LiveDashboard in development

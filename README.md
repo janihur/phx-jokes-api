@@ -1,4 +1,5 @@
 # phx-jokes-api
+
 An example [Phoenix](https://www.phoenixframework.org/) project that provides an unified API to call different humorous APIs.
 
 The humorous APIs are:
@@ -9,14 +10,14 @@ The humorous APIs are:
 
 ## Prerequirements
 
-See also Phoenix [Installation](https://hexdocs.pm/phoenix/installation.html).
+See also Phoenix [installation](https://hexdocs.pm/phoenix/installation.html).
 
-[Hex](https://hex.pm/) package manager:
+Install [Hex](https://hex.pm/) package manager:
 ```bash
 $ mix local.hex
 ```
 
-Phoenix application generator:
+Install Phoenix application generator:
 ```bash
 $ mix archive.install hex phx_new
 ```
@@ -40,3 +41,43 @@ $ mix phx.server
 ```
 
 At this point there is nothing but the Phoenix dashboard: http://localhost:4000/dev/dashboard/
+
+## Running Tests
+
+```bash
+$ mix test
+```
+
+## How to Call the API
+
+Supported query parameters:
+* Mandatory: `family` - valid values: `chucknorris`, `ipsum`, `simpsons`
+* Optional: `amount` - integer greater than zero, defaults to 1.
+
+Examples:
+```bash
+$ curl --verbose 'http://localhost:4000/api/jokes/v1?family=simpsons&amount=2'
+```
+
+### Error Responses
+
+HTTP status code 400 Bad Request with error details in payload:
+```json
+{"message":"error details"}
+```
+
+## Version 1
+
+The basic Phoenix skeleton where:
+* the query parameters are validated
+* the query is routed to the correct handler
+* returns hard-coded response, no actual api calls yet
+* all code in the controller
+
+So no jokes returned yet!
+
+## TODO
+
+* Separate the application code from the Phoenix code.
+* Call the actual APIs.
+* Customised responses for 404 and 500.
