@@ -59,6 +59,8 @@ Examples:
 $ curl --verbose 'http://localhost:4000/api/jokes/v1?family=simpsons&amount=2'
 ```
 
+Note the version in the path, i.e. `jokes/v1` or `jokes/v2`.
+
 ### Error Responses
 
 HTTP status code 400 Bad Request with error details in payload:
@@ -76,8 +78,19 @@ The basic Phoenix skeleton where:
 
 So no jokes returned yet!
 
+## Version 2
+
+Install additional dependencies:
+```bash
+$ mix deps.get
+```
+
+Compared to v1:
+* Application code has been separated from the Phoenix code.
+
+
 ## TODO
 
-* Separate the application code from the Phoenix code.
 * Call the actual APIs.
 * Customised responses for 404 and 500.
+* `amount` can also be Roman numeral.
